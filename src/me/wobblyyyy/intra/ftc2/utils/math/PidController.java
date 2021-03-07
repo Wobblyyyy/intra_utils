@@ -82,6 +82,7 @@ package me.wobblyyyy.intra.ftc2.utils.math;
  *
  * @author Colin Robertson
  */
+@SuppressWarnings("unused")
 public class PidController {
     /**
      * The default time value.
@@ -187,7 +188,8 @@ public class PidController {
      * the proportional term should contribute the bulk of the output change.
      * </p>
      */
-    private double kP;
+    @SuppressWarnings("UnusedAssignment")
+    private double kP = 0;
 
     /**
      * The "integral" component of the PID.
@@ -222,7 +224,8 @@ public class PidController {
      * value to overshoot the setpoint value (see the section on loop tuning).
      * </p>
      */
-    private double kI;
+    @SuppressWarnings("UnusedAssignment")
+    private double kI = 0;
 
     /**
      * The "derivative" component of the PID.
@@ -263,7 +266,8 @@ public class PidController {
      * impact on system stability in real-world applications.
      * </p>
      */
-    private double kD;
+    @SuppressWarnings("UnusedAssignment")
+    private double kD = 0;
 
     /**
      * The amount of time, in seconds, between each period update.
@@ -315,12 +319,14 @@ public class PidController {
     /**
      * A tracker for the last-recorded position error.
      */
-    private Error positionError;
+    @SuppressWarnings("FieldMayBeFinal")
+    private Error positionError = new Error(0, 0);
 
     /**
      * A tracker for the last-recorded velocity error.
      */
-    private Error velocityError;
+    @SuppressWarnings("FieldMayBeFinal")
+    private Error velocityError = new Error(0, 0);
 
     /**
      * The PID controller's target position.
@@ -335,6 +341,7 @@ public class PidController {
     /**
      * The last-recorded measurement.
      */
+    @SuppressWarnings("FieldCanBeLocal")
     private double measurement;
 
     /**
